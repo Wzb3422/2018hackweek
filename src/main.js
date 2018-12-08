@@ -14,8 +14,6 @@ import { TabContainer, TabContainerItem } from 'mint-ui';
 Vue.config.productionTip = false
 Vue.use(Mint)
 Vue.use(MintUI)
-Vue.component(TabContainer.name, TabContainer);
-Vue.component(TabContainerItem.name, TabContainerItem);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

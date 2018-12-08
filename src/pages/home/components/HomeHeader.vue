@@ -24,7 +24,6 @@
   .header
     display flex
     height .97rem
-    border-bottom 1px solid rgb(233, 233, 233)
     .header-back
       width 30px
       height .97rem

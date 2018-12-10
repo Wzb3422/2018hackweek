@@ -23,6 +23,10 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
 /*这里的font-size要根据设计给的是3x图是2x图进行修改*/
 html {
   font-size: 50px; /* 2x */

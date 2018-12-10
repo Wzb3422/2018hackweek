@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="iconfont forDetail">
-        &#xe601;
+        &#xe602;
       </div>
     </div>
   </div>

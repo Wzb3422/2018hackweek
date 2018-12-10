@@ -87,6 +87,8 @@
 </script>
 
 <style lang="stylus" scoped>
+  .wrapper
+    margin-bottom 1.2rem
   .nav
     box-shadow 0 .1rem .5rem rgb(233, 233, 233)
     margin-bottom .35rem
@@ -108,7 +110,6 @@
     font-size 18px
     text-align center
   .picker
-    width 375px
-
+    width 39999rem
   /*.slot*/
 </style>

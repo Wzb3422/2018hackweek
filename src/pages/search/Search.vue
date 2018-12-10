@@ -1,0 +1,88 @@
+<template>
+  <div class="wrapper">
+    <!-- Header -->
+    <div class="header">
+      <div class="header-back">
+        <router-link to="/">
+          <div class="iconfont back-arrow">
+            &#xe601;
+          </div>
+        </router-link>
+
+      </div>
+      <div class="header-title">失物寻踪</div>
+      <div class="header-search">
+        <div class="iconfont search-icon">
+        </div>
+      </div>
+    </div>
+    <!-- Search-Bar -->
+    <div class="search-bar">
+      <div class="search-input">
+        <div class="iconfont input-icon">&#xe60c;</div>
+        <input id="inputArea" class="input-area" placeholder="想要找什么呢" v-model="inputVal"/>
+        <div class="search-text" @click="toSearch">搜索</div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  import axios from 'axios'
+  export default {
+    name: "Search",
+    data () {
+      return {
+        inputVal: ''
+      }
+    },
+    methods: {
+      toSearch () {
+        axios.get('http://129.204.17.28:5000/lost_search', {
+          params: {
+            search: this.inputVal,
+            isget: '未领取'
+          }
+        })
+          .then(function (res) {
+            alert('搜索开始')
+            console.log(res.data.length)
+            if (res.data.length === 0) {
+              alert('没有搜索结果 放弃吧')
+            }
+          })
+          .catch(function (err) {
+            console.log(err)
+          })
+      }
+    }
+  }
+</script>
+
+<style lang="stylus" scoped>
+  @import "header.styl"
+  .search-bar
+    margin-top .8rem
+    height .8rem
+    width 100%
+    .search-input
+      width 5.6rem
+      height .8rem
+      margin 0 auto
+      display flex
+      justify-content space-between
+      .input-icon
+        font-size .6rem
+        line-height .8rem
+      .input-area
+        width 3.3rem
+        outline none
+        border none
+        font-size .32rem
+        text-align center
+        color rgb(190, 190, 190)
+      .search-text
+        color rgb(134, 145, 243)
+        line-height .8rem
+        font-size .32rem
+</style>

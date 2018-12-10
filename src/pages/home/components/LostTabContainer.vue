@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="nav">
-      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'all'">物品</mt-button>
+      <div class="nav-word">物品</div>
       <mt-button class="label-btn" size="small" @click.native.prevent="active = 'umbrella'">雨伞</mt-button>
       <mt-button class="label-btn" size="small" @click.native.prevent="active = 'certificate'">证件</mt-button>
       <mt-button class="label-btn" size="small" @click.native.prevent="active = 'books'">书籍</mt-button>
@@ -49,6 +49,14 @@
   .nav
     box-shadow 0 .1rem 1rem rgb(233, 233, 233)
     margin-bottom .35rem
+    .nav-word
+      height 33px
+      width 50px
+      color #656b79
+      text-align center
+      line-height 33px
+      float left
+      margin-left .1rem
     .label-btn
       color rgb(250, 196, 110)
       background #fff

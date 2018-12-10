@@ -3,7 +3,7 @@
     <div class="tab">
       <div class="tab-left">
         <mt-button class="label-btn" size="small" @click="" @click.native.prevent="active = 'found'">
-          <span class="found-text">
+          <span class="purpleText">
           失物招领
           </span>
         </mt-button>
@@ -32,7 +32,7 @@
   import FoundTabContainer from './FoundTabContainer'
   import LostTabContainer from './LostTabContainer'
   export default {
-    name: "HomeTab",
+    name: 'HomeTab',
     components: {LostTabContainer, FoundTabContainer},
     data () {
       return {
@@ -58,8 +58,7 @@
     border-radius 0
   .tab
     height .77rem
-    width 100%
-    margin-top .15rem
+    width 100
     .tab-left
     .tab-right
       display flex

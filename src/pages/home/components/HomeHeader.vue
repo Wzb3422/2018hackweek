@@ -2,7 +2,7 @@
   <div class="header">
     <div class="header-back">
       <div class="iconfont back-arrow">
-      &#xe600;
+        &#xe601;
       </div>
     </div>
     <div class="header-title">失物寻踪</div>
@@ -38,7 +38,7 @@
       line-height .97rem
       font-family Arial
       color rgb(10, 9, 9)
-      font-size.44rem
+      font-size.38rem
       text-align center
     .header-search
       width 30px

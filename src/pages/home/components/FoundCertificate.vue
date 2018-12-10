@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="item-box" v-for="item of boxList" :key="item.id">
+    <div class="item-box">
       <div class="item-logo">
         <div class="iconfont umbrella-font">
           &#xe665;
@@ -8,15 +8,15 @@
       </div>
       <div class="item-contents">
         <div class="item-title">
-          {{item.goods_name}}
+          123
         </div>
         <div class="item-desc">
-          {{item.desc}}
+          123
         </div>
         <div class="item-label-list">
           <div class="item-label">
-            <span class="purpleLabel">{{item.date}}</span>
-            <span class="purpleLabel">{{item.location}}</span>
+            <span class="purpleLabel">123</span>
+            <span class="purpleLabel">123</span>
           </div>
         </div>
       </div>
@@ -30,7 +30,7 @@
 <script>
   export default {
     props: ['boxList'],
-    name: "FoundUmbrella",
+    name: "FoundCertificate",
     data () {
       return {
       }

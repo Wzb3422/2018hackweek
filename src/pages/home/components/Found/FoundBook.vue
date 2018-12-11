@@ -4,7 +4,7 @@
       <div class="item-box" v-for="item of boxList" :key="item.id">
         <div class="item-logo">
           <!-- 判断物品类型 从而选择显示图标类型 -->
-          <div class="iconfont item-font">
+          <div class="iconfont umbrella-font">
             &#xe616;
           </div>
         </div>

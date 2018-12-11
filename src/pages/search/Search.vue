@@ -12,8 +12,7 @@
       </div>
       <div class="header-title">失物寻踪</div>
       <div class="header-search">
-        <div class="iconfont search-icon">
-        </div>
+        <div class="iconfont search-icon"></div>
       </div>
     </div>
     <!-- Search-Bar -->
@@ -43,7 +42,7 @@
     methods: {
       toSearch () {
         if (this.inputVal.length === 0) {
-          Toast
+          Toast('请先输入搜索内容')
         }
         axios.get('http://129.204.17.28:5000/lost_search', {
           params: {
@@ -54,7 +53,7 @@
           .then(function (res) {
             console.log(res.data.length)
             if (res.data.length === 0) {
-              alert('没有搜索结果 放弃吧')
+              Toast('没有找到哦')
             }
           })
           .catch(function (err) {

@@ -1,0 +1,57 @@
+<template>
+  <div class="rootEle">
+    <div class="wrapper">
+      <div class="item-box" v-for="item of boxList" :key="item.id">
+        <div class="item-logo">
+          <!-- 判断物品类型 从而选择显示图标类型 -->
+          <div class="iconfont item-font">
+            &#xe616;
+          </div>
+        </div>
+        <div class="item-contents">
+          <div class="item-title">
+            {{item.goods_name}}
+          </div>
+          <div class="item-desc">
+            {{item.desc}}
+          </div>
+          <div class="item-label-list">
+            <div class="item-label">
+              <span class="purpleLabel">{{item.date}}</span>
+              <span class="purpleLabel">{{item.location}}</span>
+            </div>
+          </div>
+        </div>
+        <router-link to="/foundDetails">
+          <div class="iconfont forDetail">
+            &#xe602;
+          </div>
+        </router-link>
+
+      </div>
+    </div>
+    <div class="search-bar">
+    </div>
+  </div>
+
+</template>
+
+<script>
+  export default {
+    props: ['boxList'],
+    name: "FoundBook",
+    data () {
+      return {
+      }
+    },
+    methods: {
+    }
+  }
+</script>
+
+<style lang="stylus" scoped>
+  @import "found.styl"
+  .search-bar
+    width 100%
+    height .6rem
+</style>

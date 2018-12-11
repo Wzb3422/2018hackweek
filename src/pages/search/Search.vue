@@ -24,13 +24,17 @@
         <div class="search-text" @click="toSearch">搜索</div>
       </div>
     </div>
+    <SearchRet></SearchRet>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
+  import { Toast } from 'mint-ui';
+  import SearchRet from './SearchRet'
   export default {
     name: "Search",
+    components: {SearchRet},
     data () {
       return {
         inputVal: ''
@@ -38,6 +42,9 @@
     },
     methods: {
       toSearch () {
+        if (this.inputVal.length === 0) {
+          Toast
+        }
         axios.get('http://129.204.17.28:5000/lost_search', {
           params: {
             search: this.inputVal,
@@ -45,7 +52,6 @@
           }
         })
           .then(function (res) {
-            alert('搜索开始')
             console.log(res.data.length)
             if (res.data.length === 0) {
               alert('没有搜索结果 放弃吧')

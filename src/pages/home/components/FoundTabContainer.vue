@@ -15,10 +15,10 @@
           <FoundUmbrella :boxList="UmbrellaList"></FoundUmbrella>
         </mt-tab-container-item>
         <mt-tab-container-item id="certificate">
-          <FoundCertificate></FoundCertificate>
+          <FoundCertificate :boxList="UmbrellaList"></FoundCertificate>
         </mt-tab-container-item>
         <mt-tab-container-item id="books">
-          这里是书
+          <FoundBook :boxList="UmbrellaList"></FoundBook>
         </mt-tab-container-item>
         <mt-tab-container-item id="glasses">
           这里是眼镜
@@ -36,11 +36,12 @@
 
 <script>
   import axios from 'axios'
-  import FoundUmbrella from './FoundUmbrella'
-  import FoundCertificate from './FoundCertificate'
+  import FoundUmbrella from './Found/FoundUmbrella'
+  import FoundCertificate from './Found/FoundCertificate'
+  import FoundBook from './Found/FoundBook'
   export default {
     name: 'FoundTabContainer',
-    components: {FoundCertificate, FoundUmbrella},
+    components: {FoundBook, FoundCertificate, FoundUmbrella},
     data() {
       return {
         active: '',

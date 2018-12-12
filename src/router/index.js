@@ -3,13 +3,15 @@ import Router from 'vue-router'
 import Home from '@/pages/home/home'
 import FoundDetails from "../pages/details/FoundDetails";
 import Search from "../pages/search/Search";
+import Me from '../pages/Me/Me'
+import Login from '../pages/Login/Login'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/home',
       name: 'Home',
       component: Home
     },
@@ -22,6 +24,16 @@ export default new Router({
       path: '/search',
       name: 'Search',
       component: Search
+    },
+    {
+      path: '/me',
+      name: 'Me',
+      component: Me
+    },
+    {
+      path: '/',
+      name: 'Login',
+      component: Login
     }
   ]
 })

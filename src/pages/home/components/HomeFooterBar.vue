@@ -8,8 +8,10 @@
       <div class="iconfont round-cross">&#xe62f;</div>
     </div>
     <div class="bar-right">
-      <div class="iconfont right-icon">&#xe612;</div>
-      <div class="right-word">我的</div>
+      <router-link to="/me">
+        <div class="iconfont right-icon">&#xe612;</div>
+        <div class="right-word">我的</div>
+      </router-link>
     </div>
   </div>
 </template>

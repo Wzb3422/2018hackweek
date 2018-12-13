@@ -1,12 +1,14 @@
 <template>
-  <div class="wrapper">
+  <div class="foot-bar">
     <div class="bar-left">
       <div class="iconfont left-icon">&#xe61f;</div>
       <div class="left-word">汇总</div>
     </div>
     <div class="bar-center">
-      <div class="iconfont round-yellow-cross" @click="centerClick" v-if="!isPurple">&#xe62f;</div>
-      <div class="iconfont round-purple-cross" @click="centerClick" v-if="isPurple">&#xe62f;</div>
+      <router-link to="/pop">
+        <div class="iconfont round-yellow-cross" @click="centerClick">&#xe62f;</div>
+      </router-link>
+
     </div>
     <div class="bar-right">
       <router-link to="/me">
@@ -19,23 +21,12 @@
 
 <script>
   export default {
-    name: "HomeFooterBar",
-    methods: {
-      centerClick () {
-        this.isPurple = !this.isPurple
-        this.$emit('centerClick')
-      }
-    },
-    data () {
-      return {
-        isPurple: false
-      }
-    }
+    name: "HomeFooterBar"
   }
 </script>
 
 <style lang="stylus" scoped>
-  .wrapper
+  .foot-bar
     background #fff
     height 1.2rem
     width 100%

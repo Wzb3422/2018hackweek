@@ -53,7 +53,9 @@
 
         </div>
         <div class="bar-center">
-          <div class="iconfont round-cross">&#xe62f;</div>
+          <router-link to="/pop">
+            <div class="iconfont round-cross">&#xe62f;</div>
+          </router-link>
         </div>
         <div class="bar-right">
             <div class="iconfont right-icon">&#xe612;</div>

@@ -6,6 +6,7 @@ import LostDetails from '../pages/details/LostDetails'
 import Search from "../pages/search/Search";
 import Me from '../pages/Me/Me'
 import Login from '../pages/Login/Login'
+import popupTwo from '../pages/home/components/popupTwo'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/pop',
+      name: 'popupTwo',
+      component: popupTwo
     }
   ]
 })

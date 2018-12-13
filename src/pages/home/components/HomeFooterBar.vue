@@ -6,7 +6,7 @@
     </div>
     <div class="bar-center">
       <router-link to="/pop">
-        <div class="iconfont round-yellow-cross" @click="centerClick">&#xe62f;</div>
+        <div class="iconfont round-yellow-cross">&#xe62f;</div>
       </router-link>
 
     </div>

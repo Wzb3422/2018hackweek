@@ -3,10 +3,10 @@
     <div class="nav">
       <div class="nav-word">物品</div>
       <mt-button class="label-btn" size="small"  @click.native.prevent="active = 'umbrella'" @click="getUmbrellaList">雨伞</mt-button>
-      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'certificate'" @click="showPop">证件</mt-button>
-      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'books'" @click="showPop">书籍</mt-button>
-      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'glasses'" @click="showPop">眼镜</mt-button>
-      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'bag'" @click="showPop">背包</mt-button>
+      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'certificate'" @click="getCertificate">证件</mt-button>
+      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'books'" @click="getBook">书籍</mt-button>
+      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'glasses'" @click="getGlasses">眼镜</mt-button>
+      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'bag'" @click="getBag">背包</mt-button>
     </div>
 
     <div class="page-tab-container">
@@ -15,22 +15,19 @@
           <FoundUmbrella :boxList="UmbrellaList"></FoundUmbrella>
         </mt-tab-container-item>
         <mt-tab-container-item id="certificate">
-          <FoundCertificate :boxList="UmbrellaList"></FoundCertificate>
+          <FoundCertificate :boxList="CertificateList"></FoundCertificate>
         </mt-tab-container-item>
         <mt-tab-container-item id="books">
-          <FoundBook :boxList="UmbrellaList"></FoundBook>
+          <FoundBook :boxList="BookList"></FoundBook>
         </mt-tab-container-item>
         <mt-tab-container-item id="glasses">
-          这里是眼镜
+          <FoundGlasses :boxList="GlassesList"></FoundGlasses>
         </mt-tab-container-item>
         <mt-tab-container-item id="bag">
-          这里是包
+          <FoundBag :boxList="BagList"></FoundBag>
         </mt-tab-container-item>
       </mt-tab-container>
     </div>
-    <mt-popup v-model="popupVisible" position="bottom" popup-transition="popup-fade">
-      <mt-picker :slots="slots" @change="onValuesChange">123</mt-picker>
-    </mt-popup>
   </div>
 </template>
 
@@ -39,29 +36,27 @@
   import FoundUmbrella from './Found/FoundUmbrella'
   import FoundCertificate from './Found/FoundCertificate'
   import FoundBook from './Found/FoundBook'
+  import FoundGlasses from './Found/FoundGlasses'
+  import FoundBag from './Found/FoundBag'
   export default {
     name: 'FoundTabContainer',
-    components: {FoundBook, FoundCertificate, FoundUmbrella},
+    components: {FoundBag, FoundGlasses, FoundBook, FoundCertificate, FoundUmbrella},
     data() {
       return {
         active: '',
         popupVisible: false,
         pickerValue: '',
         UmbrellaList: [],
-        slots: [
-          {
-            flex: 1,
-            values: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
-            className: 'slot',
-            textAlign: 'center'
-          }
-        ]
+        CertificateList: [],
+        BookList: [],
+        GlassesList: [],
+        BagList: []
     };
     },
     methods: {
       getUmbrellaList () {
         let _this = this
-        this.showPop()
+        // this.showPop()
         axios.get('http://129.204.17.28:5000/lost_get', {
           params: {
             goods: '伞',
@@ -75,13 +70,72 @@
             console.log(err)
           })
       },
+      getCertificate () {
+        let _this = this
+        // this.showPop()
+        axios.get('http://129.204.17.28:5000/lost_get', {
+          params: {
+            goods: '证件',
+            isget: '未领取'
+          }
+        })
+          .then(function (res) {
+            _this.CertificateList = res.data
+          })
+          .catch(function (err) {
+            console.log(err)
+          })
+      },
+      getBook () {
+        let _this = this
+        // this.showPop()
+        axios.get('http://129.204.17.28:5000/lost_get', {
+          params: {
+            goods: '书籍',
+            isget: '未领取'
+          }
+        })
+          .then(function (res) {
+            _this.BookList = res.data
+          })
+          .catch(function (err) {
+            console.log(err)
+          })
+      },
+      getGlasses () {
+        let _this = this
+        // this.showPop()
+        axios.get('http://129.204.17.28:5000/lost_get', {
+          params: {
+            goods: '眼镜',
+            isget: '未领取'
+          }
+        })
+          .then(function (res) {
+            _this.GlassesList = res.data
+          })
+          .catch(function (err) {
+            console.log(err)
+          })
+      },
+      getBag () {
+        let _this = this
+        // this.showPop()
+        axios.get('http://129.204.17.28:5000/lost_get', {
+          params: {
+            goods: '背包',
+            isget: '未领取'
+          }
+        })
+          .then(function (res) {
+            _this.BagList = res.data
+          })
+          .catch(function (err) {
+            console.log(err)
+          })
+      },
       showPop () {
         this.popupVisible = !this.popupVisible
-      },
-      onValuesChange(picker, values) {
-        if (values[0] > values[1]) {
-          picker.setSlotValue(1, values[0]);
-        }
       }
     }
   };

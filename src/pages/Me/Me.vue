@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="header">
       <div class="header-back">
-        <router-link to="/">
+        <router-link to="/home">
           <div class="iconfont back-arrow">
             &#xe601;
           </div>

@@ -2,7 +2,7 @@
   <div>
     <home-header></home-header>
     <home-tab></home-tab>
-    <home-footer-bar @centerClick="centerClick"></home-footer-bar>
+    <home-footer-bar></home-footer-bar>
   </div>
 </template>
 

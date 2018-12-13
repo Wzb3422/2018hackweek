@@ -45,7 +45,7 @@
         </router-link>
       </div>
       <div class="bar-center">
-        <router-link to="/pop">
+        <router-link to="/home">
           <div class="iconfont round-purple-cross">&#xe62f;</div>
         </router-link>
 

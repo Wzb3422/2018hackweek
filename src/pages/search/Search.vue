@@ -51,7 +51,6 @@
           }
         })
           .then(function (res) {
-            console.log(res.data.length)
             if (res.data.length === 0) {
               Toast('没有找到哦')
             }
@@ -85,7 +84,7 @@
         border none
         font-size .32rem
         text-align center
-        color rgb(190, 190, 190)
+        font-weight bold
       .search-text
         color rgb(134, 145, 243)
         line-height .8rem

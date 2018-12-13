@@ -46,10 +46,10 @@
     methods: {
       getUmbrellaList () {
         let _this = this
-        axios.get('http://129.204.17.28:5000/lost_get', {
+        axios.get('http://129.204.17.28:5000/find_get', {
           params: {
             goods: '伞',
-            isget: '未领取'
+            isget: '未归还'
           }
         })
           .then(function (res) {

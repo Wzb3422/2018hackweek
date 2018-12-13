@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/home/home'
 import FoundDetails from "../pages/details/FoundDetails";
+import LostDetails from '../pages/details/LostDetails'
 import Search from "../pages/search/Search";
 import Me from '../pages/Me/Me'
 import Login from '../pages/Login/Login'
@@ -19,6 +20,11 @@ export default new Router({
       path: '/foundDetails',
       name: 'FoundDetails',
       component: FoundDetails
+    },
+    {
+      path: '/lostDetails',
+      name: 'LostDetails',
+      component: LostDetails
     },
     {
       path: '/search',

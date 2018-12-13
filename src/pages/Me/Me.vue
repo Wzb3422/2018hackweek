@@ -46,7 +46,7 @@
 
       <div class="foot-bar">
         <div class="bar-left">
-          <router-link to="/">
+          <router-link to="/home">
             <div class="iconfont left-icon">&#xe61f;</div>
             <div class="left-word">汇总</div>
           </router-link>

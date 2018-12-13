@@ -2,7 +2,8 @@
   <div>
     <home-header></home-header>
     <home-tab></home-tab>
-    <home-footer-bar></home-footer-bar>
+    <home-footer-bar @centerClick="centerClick"></home-footer-bar>
+    <popup-two v-if="isPop"></popup-two>
   </div>
 </template>
 
@@ -10,12 +11,24 @@
   import HomeHeader from './components/HomeHeader'
   import HomeTab from './components/HomeTab'
   import HomeFooterBar from './components/HomeFooterBar'
+  import popupTwo from './components/popupTwo'
   export default {
     name: "Home",
     components: {
+      popupTwo,
       HomeFooterBar,
       HomeHeader,
-      HomeTab
+      HomeTab,
+    },
+    data () {
+      return {
+        isPop: false
+      }
+    },
+    methods: {
+      centerClick () {
+        this.isPop = !this.isPop
+      }
     }
   }
 </script>

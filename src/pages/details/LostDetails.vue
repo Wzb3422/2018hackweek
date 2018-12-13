@@ -9,7 +9,7 @@
         </router-link>
 
       </div>
-      <div class="header-title">失物招领</div>
+      <div class="header-title">寻物启事</div>
       <div class="header-search">
         <div class="iconfont search-icon">
         </div>
@@ -45,7 +45,7 @@
       </div>
 
       <div class="return" @click="msgbox">
-        我已认领
+        我已归还
       </div>
     </div>
   </div>
@@ -55,10 +55,10 @@
 <script>
   import { MessageBox } from 'mint-ui';
   export default {
-    name: "FoundDetails",
+    name: "LostDetails",
     methods: {
-      msgbox () { MessageBox.confirm('亲爱的同学，请再次确认已经认领！').then( () => {
-        MessageBox.alert('认领成功', ' ');
+      msgbox () { MessageBox.confirm('亲爱的同学，请再次确认已经成功归还～确认后，该寻物启事将不会在汇总中出现').then( () => {
+        MessageBox.alert('谢谢你，南大小蜜蜂', ' ');
       }); }
     }
   }

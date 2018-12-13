@@ -54,3 +54,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+.mint-msgbox-message {
+  font-size: 18px;
+  line-height: 22px;
+}
+.mint-msgbox-confirm {
+  color: rgb(254, 216, 156);
+}

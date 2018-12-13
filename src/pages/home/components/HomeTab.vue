@@ -2,15 +2,15 @@
   <div class="wrapper">
     <div class="tab">
       <div class="tab-left">
-        <mt-button class="label-btn" size="small" @click="" @click.native.prevent="active = 'found'">
-          <span class="purpleText">
+        <mt-button class="label-btn" size="small" @click="Found" @click.native.prevent="active = 'found'">
+          <span :class="{purpleText: isFound}">
           失物招领
           </span>
         </mt-button>
       </div>
       <div class="tab-right">
-        <mt-button class="label-btn" size="small" @click="Underline" @click.native.prevent="active = 'lost'">
-          <span>
+        <mt-button class="label-btn" size="small" @click="Lost" @click.native.prevent="active = 'lost'">
+          <span :class="{purpleText: isLost}">
           寻物启事
           </span>
         </mt-button>
@@ -36,13 +36,19 @@
     components: {LostTabContainer, FoundTabContainer},
     data () {
       return {
-        active: 'found'
+        active: 'found',
+        isFound: true,
+        isLost: false
       }
     },
     methods: {
-      Underline () {
-        console.log(this)
-        $(this).addClass('purpleText')
+      Found () {
+        this.isFound = true
+        this.isLost = false
+      },
+      Lost () {
+        this.isLost = true
+        this.isFound = false
       }
     }
   }

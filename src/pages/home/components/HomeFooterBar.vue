@@ -5,7 +5,7 @@
       <div class="left-word">汇总</div>
     </div>
     <div class="bar-center">
-      <div class="iconfont round-cross">&#xe62f;</div>
+      <div class="iconfont round-cross" @click="centerClick">&#xe62f;</div>
     </div>
     <div class="bar-right">
       <router-link to="/me">
@@ -18,7 +18,12 @@
 
 <script>
   export default {
-    name: "HomeFooterBar"
+    name: "HomeFooterBar",
+    methods: {
+      centerClick () {
+        this.$emit('centerClick')
+      }
+    }
   }
 </script>
 

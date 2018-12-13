@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="nav">
       <div class="nav-word">物品</div>
-      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'umbrella'">雨伞</mt-button>
+      <mt-button class="label-btn" size="small" @click="getUmbrellaList" @click.native.prevent="active = 'umbrella'">雨伞</mt-button>
       <mt-button class="label-btn" size="small" @click.native.prevent="active = 'certificate'">证件</mt-button>
       <mt-button class="label-btn" size="small" @click.native.prevent="active = 'books'">书籍</mt-button>
       <mt-button class="label-btn" size="small" @click.native.prevent="active = 'glasses'">眼镜</mt-button>
@@ -11,11 +11,8 @@
 
     <div class="page-tab-container">
       <mt-tab-container class="page-tabbar-tab-container" v-model="active" swipeable>
-        <mt-tab-container-item id="all">
-          <div>helloworld</div>
-        </mt-tab-container-item>
         <mt-tab-container-item id="umbrella">
-          这里是雨伞
+          <LostUmbrella :boxList="UmbrellaList"></LostUmbrella>
         </mt-tab-container-item>
         <mt-tab-container-item id="certificate">
           这里是证件
@@ -35,12 +32,33 @@
 </template>
 
 <script>
+  import axios from 'axios'
+  import LostUmbrella from './Lost/LostUmbrella'
   export default {
     name: 'LostTabContainer',
+    components: {LostUmbrella},
     data() {
       return {
-        active: ''
+        active: '',
+        UmbrellaList: []
       };
+    },
+    methods: {
+      getUmbrellaList () {
+        let _this = this
+        axios.get('http://129.204.17.28:5000/lost_get', {
+          params: {
+            goods: '伞',
+            isget: '未领取'
+          }
+        })
+          .then(function (res) {
+            _this.UmbrellaList = res.data
+          })
+          .catch(function (err) {
+            console.log(err)
+          })
+      }
     }
   };
 </script>

@@ -9,6 +9,7 @@ import './assets/styles/reset.css'
 import './assets/styles/iconfont.css'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
+import './assets/styles/animate.css'
 
 Vue.config.productionTip = false
 Vue.use(Mint)

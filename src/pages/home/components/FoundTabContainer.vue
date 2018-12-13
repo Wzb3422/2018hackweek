@@ -51,7 +51,7 @@
         BookList: [],
         GlassesList: [],
         BagList: []
-    };
+    }
     },
     methods: {
       getUmbrellaList () {

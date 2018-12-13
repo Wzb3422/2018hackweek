@@ -22,24 +22,61 @@
         请使用云家园账号
       </div>
       <div class="username-input">
-        <input placeholder="学号" id="username">
+        <input placeholder="学号" id="username" v-model="username">
       </div>
       <div class="password-input">
-        <input type="password" placeholder="密码" id="password">
+        <input type="password" placeholder="密码" id="password" v-model="password">
       </div>
-      <router-link to="/home">
-        <div class="btn-login">
+      <!--<router-link to="/home">-->
+        <div class="btn-login" @click="getToken">
           登录
         </div>
-      </router-link>
+      <!--</router-link>-->
     </div>
 
   </div>
 </template>
 
 <script>
+  import { Toast } from 'mint-ui';
+  import axios from 'axios'
   export default {
-    name: "Login"
+    name: "Login",
+    data () {
+      return {
+        username: '',
+        password: '',
+        token: ''
+      }
+    },
+    methods: {
+      getToken () {
+        let username = this.username
+        let password = this.password
+        let token = this.token
+        axios.post('https://os.ncuos.com/api/user/token', {
+          username: username,
+          password: password
+        })
+          .then(function (res) {
+            if (res.data.status === 1) {
+              console.log('Suc')
+              console.log(res)
+              token = res.token
+            } else {
+              Toast({
+                message: '请重新登录',
+                position: 'bottom',
+                duration: 3000
+              });
+            }
+          })
+          .catch(function (error) {
+            console.log('err')
+            console.log(error);
+          });
+      }
+    }
   }
 </script>
 

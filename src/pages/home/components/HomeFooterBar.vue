@@ -5,7 +5,8 @@
       <div class="left-word">汇总</div>
     </div>
     <div class="bar-center">
-      <div class="iconfont round-cross" @click="centerClick">&#xe62f;</div>
+      <div class="iconfont round-yellow-cross" @click="centerClick" v-if="!isPurple">&#xe62f;</div>
+      <div class="iconfont round-purple-cross" @click="centerClick" v-if="isPurple">&#xe62f;</div>
     </div>
     <div class="bar-right">
       <router-link to="/me">
@@ -21,7 +22,13 @@
     name: "HomeFooterBar",
     methods: {
       centerClick () {
+        this.isPurple = !this.isPurple
         this.$emit('centerClick')
+      }
+    },
+    data () {
+      return {
+        isPurple: false
       }
     }
   }
@@ -64,7 +71,7 @@
       flex 1
       display flex
       justify-content center
-      .round-cross
+      .round-yellow-cross
         height .8rem
         width .8rem
         font-size .78rem
@@ -73,6 +80,16 @@
         color #fff
         margin .2rem auto
         background rgb(250, 196, 110)
+        border-radius 100%
+      .round-purple-cross
+        height .8rem
+        width .8rem
+        font-size .78rem
+        line-height .8rem
+        text-align center
+        color #fff
+        margin .2rem auto
+        background rgb(104, 94, 240)
         border-radius 100%
     .bar-right
       height 1.2rem

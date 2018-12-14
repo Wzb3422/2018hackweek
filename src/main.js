@@ -15,6 +15,7 @@ Vue.prototype.bus = new Vue()
 Vue.config.productionTip = false
 Vue.use(Mint)
 Vue.use(MintUI)
+Vue.prototype.username = ''
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

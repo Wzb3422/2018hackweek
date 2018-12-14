@@ -41,6 +41,8 @@
 <script>
   import { Toast } from 'mint-ui';
   import axios from 'axios'
+  import Vue from 'vue'
+
   export default {
     name: "Login",
     data () {
@@ -64,7 +66,9 @@
               console.log('Suc')
               console.log(res)
               token = res.data.token
+              window.open('http://localhost:8080/#/home')
               // console.log(token)
+
             } else {
               Toast({
                 message: '请重新登录',

@@ -38,13 +38,7 @@
 <script>
   export default {
     props: ['boxList'],
-    name: "LostBag",
-    data () {
-      return {
-      }
-    },
-    methods: {
-    }
+    name: "LostBag"
   }
 </script>
 

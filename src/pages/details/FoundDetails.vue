@@ -18,7 +18,7 @@
     <div class="box">
       <div class="row">
         <div class="title">物品</div>
-        <div class="stuffName">一把灰色碎花伞</div>
+        <div class="stuffName">{{boxList.date}}</div>
       </div>
       <div class="row">
         <div class="title">拾取人</div>
@@ -56,10 +56,25 @@
   import { MessageBox } from 'mint-ui';
   export default {
     name: "FoundDetails",
+    data () {
+      return {
+        boxList: { date: '1.1'}
+      }
+    },
     methods: {
       msgbox () { MessageBox.confirm('亲爱的同学，请再次确认已经认领！').then( () => {
         MessageBox.alert('认领成功', ' ');
       }); }
+    },
+    mounted () {
+      const _this = this
+      this.bus.$on('HandleClick', function (boxList) {
+        console.log('hello')
+        console.log(boxList)
+        _this.boxList = boxList
+        console.log('world')
+        console.log(_this.boxList.date)
+      })
     }
   }
 </script>

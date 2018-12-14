@@ -1,7 +1,7 @@
 <template>
   <div class="rootEle">
     <div class="wrapper">
-      <div class="item-box" v-for="item of boxList" :key="item.id">
+      <div class="item-box" v-for="(item, index) of boxList" :key="index">
         <div class="item-logo">
           <div class="iconfont umbrella-font">
             &#xe665;
@@ -22,7 +22,7 @@
           </div>
         </div>
         <router-link to="/foundDetails">
-          <div class="iconfont forDetail">
+          <div class="iconfont forDetail" @click="HandleClick(index)">
             &#xe602;
           </div>
         </router-link>
@@ -39,11 +39,11 @@
   export default {
     props: ['boxList'],
     name: "FoundUmbrella",
-    data () {
-      return {
-      }
-    },
     methods: {
+      HandleClick (index) {
+        console.log(this.boxList[index].goods_name)
+        this.bus.$emit('HandleClick', this.boxList[index])
+      }
     }
   }
 </script>

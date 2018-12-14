@@ -11,6 +11,7 @@ import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import './assets/styles/animate.css'
 
+Vue.prototype.bus = new Vue()
 Vue.config.productionTip = false
 Vue.use(Mint)
 Vue.use(MintUI)

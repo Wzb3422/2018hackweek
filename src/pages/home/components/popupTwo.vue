@@ -18,13 +18,16 @@
     </div>
     <!-- pop -->
     <div class="pop">
-      <div class="card-row">
-        <div class="iconfont card-icon">&#xe674;</div>
-        <div class="card-text">
-          <div class="card-title">校园卡 身份证 银行卡</div>
-          <div class="card-prompt">银行卡仅限学校所发建行卡</div>
+      <router-link to="/postFindCard">
+        <div class="card-row">
+          <div class="iconfont card-icon">&#xe674;</div>
+          <div class="card-text">
+            <div class="card-title">校园卡 身份证 银行卡</div>
+            <div class="card-prompt">银行卡仅限学校所发建行卡</div>
+          </div>
         </div>
-      </div>
+      </router-link>
+
 
       <div class="other-stuff card-row">
         <div class="iconfont other-icon card-icon">

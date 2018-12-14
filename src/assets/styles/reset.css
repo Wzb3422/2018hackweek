@@ -62,3 +62,9 @@ table {
 .mint-msgbox-confirm {
   color: rgb(254, 216, 156);
 }
+
+input {
+  outline: none;
+  border: none;
+  padding: 0;
+}

@@ -58,17 +58,20 @@
     name: "FoundDetails",
     data () {
       return {
-        boxList: this.boxList
+        boxList: []
       }
     },
     methods: {
       msgbox () { MessageBox.confirm('亲爱的同学，请再次确认已经认领！').then( () => {
         MessageBox.alert('认领成功', ' ');
-      }); }
+      }); },
+      getThis () {
+        return this
+      }
     },
     mounted () {
+      console.log(this)
       const _this = this
-      console.log(_this)
       this.bus.$on('HandleClick', function (boxList) {
         console.log('hello')
         console.log(boxList)
@@ -76,6 +79,7 @@
         console.log('world')
         console.log(_this.boxList)
         console.log(_this)
+        console.log('213')
       })
     }
   }

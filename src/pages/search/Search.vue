@@ -23,7 +23,8 @@
         <div class="search-text" @click="toSearch">搜索</div>
       </div>
     </div>
-    <SearchRet></SearchRet>
+    <div></div>
+    <SearchRet :RetList="Ret"></SearchRet>
   </div>
 </template>
 
@@ -36,11 +37,13 @@
     components: {SearchRet},
     data () {
       return {
-        inputVal: ''
+        inputVal: '',
+        Ret: []
       }
     },
     methods: {
       toSearch () {
+        let _this = this
         if (this.inputVal.length === 0) {
           Toast('请先输入搜索内容')
         }
@@ -54,6 +57,8 @@
             if (res.data.length === 0) {
               Toast('没有找到哦')
             }
+            // console.log(res.data)
+            _this.Ret = res.data
           })
           .catch(function (err) {
             console.log(err)

@@ -42,6 +42,7 @@
     methods: {
       HandleClick (index) {
         this.bus.$emit('HandleClick', this.boxList[index])
+        console.log(index)
         console.log('向外出发成功')
       }
     }

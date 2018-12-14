@@ -49,19 +49,34 @@
     <div>
 
     </div>
-    <!--<div class="Location">-->
-      <!--<div class="Location-title">-->
-        <!--地点-->
-      <!--</div>-->
-      <!--<div class="Location-input">-->
-        <!--<input class="add-input" :value="location">-->
-      <!--</div>-->
-    <!--</div>-->
+    <div class="Location">
+      <div class="Location-title">
+        地点
+      </div>
+      <div class="Location-input">
+        <input class="add-input" :value="location">
+      </div>
+    </div>
+
+    <div class="contact">
+      <div class="contact-title">请选择联系方式</div>
+      <div class="contact-icon">
+        <div class="iconfont qq-icon" :class="{ purpleText: isQQ }" @click="activateQQ">&#xe7a0;</div>
+        <div class="iconfont tel-icon" :class="{ purpleText: !isQQ }" @click="activateTel">&#xe615;</div>
+      </div>
+      <div class="contact-box">
+        <input class="contact-input" :value="contact">
+      </div>
+    </div>
+    <div class="post-text" @click="postCard">
+      发布寻物启事
+    </div>
   </div>
 </template>
 
 <script>
-
+  import { Toast } from 'mint-ui';
+  import axios from 'axios'
   export default {
     name: "FindCard",
     data () {
@@ -79,7 +94,10 @@
         location: null,
         date: null,
         month: null,
-        year: null
+        year: null,
+        contact: '',
+        isQQ: true,
+        name: '',
       }
     },
     methods: {
@@ -108,6 +126,33 @@
         this.isStuCard = false
         this.isIdCard = false
         this.isBank = true
+      },
+      activateQQ () {
+        this.isQQ = true
+      },
+      activateTel () {
+        this.isQQ = false
+      },
+      postCard () {
+        let _this = this
+        axios.post('http://129.204.17.28:5000/find_add', {
+          name: _this.name,
+          id: _this.num,
+          qq: _this.contact,
+          desc: location
+        })
+          .then(function (res) {
+            if (res.data.status === 1) {
+              Toast('发布成功')
+            } else {
+              Toast('请将信息填写完整')
+            }
+          })
+          .catch(function (error) {
+            console.log('err')
+            console.log(error);
+            Toast('请将信息填写完整')
+          });
       }
     }
   }
@@ -218,4 +263,57 @@
         width 100%
         font-size .4rem
         text-align center
+  .contact
+    width 4.4rem
+    margin 0 auto
+    margin-top .5rem
+    .contact-title
+      height .3rem
+      width 100%
+      line-height .3rem
+      text-align center
+      color rgb(155, 155, 155)
+    .contact-icon
+      width 100%
+      height .8rem
+      display flex
+      justify-content space-evenly
+      align-items center
+      margin-top .5rem
+      .qq-icon
+        height .8rem
+        width 1rem
+        font-size .8rem
+        text-align center
+      .tel-icon
+        height .8rem
+        width 1rem
+        text-align center
+        font-size .64rem
+      .purpleText
+        color rgb(60, 46, 243)
+    .contact-box
+      margin-top .2rem
+      padding-bottom .08rem
+      border-bottom .02rem solid rgb(233, 233, 233)
+      height .6rem
+      .contact-input
+        border none
+        padding 0
+        outline none
+        height 100%
+        width 100%
+        font-size .4rem
+        text-align center
+  .post-text
+    margin 0 auto
+    height .8rem
+    width 4.4rem
+    background rgb(254, 216, 156)
+    color #ffffff
+    line-height .8rem
+    text-align center
+    border-radius 10px
+    font-weight bold
+    margin-top 1rem
 </style>

@@ -62,12 +62,13 @@
             if (res.data.status === 1) {
               console.log('Suc')
               console.log(res)
-              token = res.token
+              token = res.data.token
+              // console.log(token)
             } else {
               Toast({
                 message: '请重新登录',
                 position: 'bottom',
-                duration: 3000
+                duration: 1000
               });
             }
           })

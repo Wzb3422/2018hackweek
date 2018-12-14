@@ -41,8 +41,8 @@
     name: "FoundUmbrella",
     methods: {
       HandleClick (index) {
-        console.log(this.boxList[index].goods_name)
         this.bus.$emit('HandleClick', this.boxList[index])
+        console.log('向外出发成功')
       }
     }
   }

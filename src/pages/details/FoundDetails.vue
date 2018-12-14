@@ -18,7 +18,7 @@
     <div class="box">
       <div class="row">
         <div class="title">物品</div>
-        <div class="stuffName">{{boxList.date}}</div>
+        <div class="stuffName">{{ boxList }}</div>
       </div>
       <div class="row">
         <div class="title">拾取人</div>
@@ -58,7 +58,7 @@
     name: "FoundDetails",
     data () {
       return {
-        boxList: { date: '1.1'}
+        boxList: this.boxList
       }
     },
     methods: {
@@ -68,12 +68,14 @@
     },
     mounted () {
       const _this = this
+      console.log(_this)
       this.bus.$on('HandleClick', function (boxList) {
         console.log('hello')
         console.log(boxList)
         _this.boxList = boxList
         console.log('world')
-        console.log(_this.boxList.date)
+        console.log(_this.boxList)
+        console.log(_this)
       })
     }
   }
@@ -103,8 +105,8 @@
       .stuffName
         width 4.7rem
         height .9rem
-        font-size .4rem
-        line-height 1rem
+        font-size .5rem
+        line-height .7rem
 
       .text
         width 4.7rem

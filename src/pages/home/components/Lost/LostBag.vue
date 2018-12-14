@@ -21,7 +21,7 @@
             </div>
           </div>
         </div>
-        <router-link to="/foundDetails">
+        <router-link to="/lostDetails">
           <div class="iconfont forDetail">
             &#xe602;
           </div>
@@ -38,7 +38,13 @@
 <script>
   export default {
     props: ['boxList'],
-    name: "FoundBag"
+    name: "LostBag",
+    data () {
+      return {
+      }
+    },
+    methods: {
+    }
   }
 </script>
 

@@ -4,7 +4,7 @@
       <div class="item-box" v-for="item of boxList" :key="item.id">
         <div class="item-logo">
           <div class="iconfont umbrella-font">
-            &#xe600;
+            &#xe665;
           </div>
         </div>
         <div class="item-contents">
@@ -21,7 +21,7 @@
             </div>
           </div>
         </div>
-        <router-link to="/foundDetails">
+        <router-link to="/lostDetails">
           <div class="iconfont forDetail">
             &#xe602;
           </div>
@@ -38,7 +38,13 @@
 <script>
   export default {
     props: ['boxList'],
-    name: "FoundBag"
+    name: "LostCertificate",
+    data () {
+      return {
+      }
+    },
+    methods: {
+    }
   }
 </script>
 

@@ -3,14 +3,15 @@
     <div class="nav">
       <div class="nav-word">物品</div>
       <mt-button class="label-btn" size="small"  @click.native.prevent="active = 'umbrella'" @click="getUmbrellaList">雨伞</mt-button>
-      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'certificate'" @click="getCertificate">证件</mt-button>
+      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'certificate'" @click="getCertificate">卡片证件</mt-button>
       <mt-button class="label-btn" size="small" @click.native.prevent="active = 'books'" @click="getBook">书籍</mt-button>
       <mt-button class="label-btn" size="small" @click.native.prevent="active = 'glasses'" @click="getGlasses">眼镜</mt-button>
       <mt-button class="label-btn" size="small" @click.native.prevent="active = 'bag'" @click="getBag">背包</mt-button>
+      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'others'" @click="getBag">其他</mt-button>
     </div>
 
     <div class="page-tab-container">
-      <mt-tab-container class="page-tabbar-tab-container" v-model="active" swipeable>
+      <mt-tab-container class="page-tabbar-tab-container" v-model="active">
         <mt-tab-container-item id="umbrella">
           <FoundUmbrella :boxList="UmbrellaList"></FoundUmbrella>
         </mt-tab-container-item>
@@ -25,6 +26,9 @@
         </mt-tab-container-item>
         <mt-tab-container-item id="bag">
           <FoundBag :boxList="BagList"></FoundBag>
+        </mt-tab-container-item>
+        <mt-tab-container-item id="others">
+          <div>这里是其它</div>
         </mt-tab-container-item>
       </mt-tab-container>
     </div>
@@ -147,6 +151,7 @@
   .nav
     box-shadow 0 .1rem .5rem rgb(233, 233, 233)
     margin-bottom .35rem
+    width 11rem
     .nav-word
       height 33px
       width 50px

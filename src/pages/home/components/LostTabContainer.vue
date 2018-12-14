@@ -3,10 +3,10 @@
     <div class="nav">
       <div class="nav-word">物品</div>
       <mt-button class="label-btn" size="small" @click="getUmbrellaList" @click.native.prevent="active = 'umbrella'">雨伞</mt-button>
-      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'certificate'">证件</mt-button>
-      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'books'">书籍</mt-button>
-      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'glasses'">眼镜</mt-button>
-      <mt-button class="label-btn" size="small" @click.native.prevent="active = 'bag'">背包</mt-button>
+      <mt-button class="label-btn" size="small" @click="getCertificateList" @click.native.prevent="active = 'certificate'">证件</mt-button>
+      <mt-button class="label-btn" size="small" @click="getBookList" @click.native.prevent="active = 'books'">书籍</mt-button>
+      <mt-button class="label-btn" size="small" @click="getGlasses" @click.native.prevent="active = 'glasses'">眼镜</mt-button>
+      <mt-button class="label-btn" size="small" @click="getBag" @click.native.prevent="active = 'bag'">背包</mt-button>
     </div>
 
     <div class="page-tab-container">
@@ -15,16 +15,16 @@
           <LostUmbrella :boxList="UmbrellaList"></LostUmbrella>
         </mt-tab-container-item>
         <mt-tab-container-item id="certificate">
-          这里是证件
+          <lost-certificate :boxList="CertificateList"></lost-certificate>
         </mt-tab-container-item>
         <mt-tab-container-item id="books">
-          这里是书
+          <LostBook :boxList="bookList"></LostBook>
         </mt-tab-container-item>
         <mt-tab-container-item id="glasses">
-          这里是眼镜
+          <LostGlass :boxList="glassList"></LostGlass>
         </mt-tab-container-item>
         <mt-tab-container-item id="bag">
-          这里是包
+          <LostBag :boxList="bagList"></LostBag>
         </mt-tab-container-item>
       </mt-tab-container>
     </div>
@@ -34,13 +34,22 @@
 <script>
   import axios from 'axios'
   import LostUmbrella from './Lost/LostUmbrella'
+  import LostCertificate from './Lost/LostCertificate'
+  import LostBook from './Lost/LostBook'
+  import LostGlass from './Lost/LostGlass'
+  import LostBag from './Lost/LostBag'
+
   export default {
     name: 'LostTabContainer',
-    components: {LostUmbrella},
+    components: {LostBag, LostGlass, LostBook, LostCertificate, LostUmbrella},
     data() {
       return {
         active: '',
-        UmbrellaList: []
+        UmbrellaList: [],
+        CertificateList: [],
+        bookList: [],
+        glassList: [],
+        bagList: []
       };
     },
     methods: {
@@ -54,6 +63,66 @@
         })
           .then(function (res) {
             _this.UmbrellaList = res.data
+          })
+          .catch(function (err) {
+            console.log(err)
+          })
+      },
+      getCertificateList () {
+        let _this = this
+        axios.get('http://129.204.17.28:5000/find_get', {
+          params: {
+            goods: '证件',
+            isget: '未归还'
+          }
+        })
+          .then(function (res) {
+            _this.CertificateList = res.data
+          })
+          .catch(function (err) {
+            console.log(err)
+          })
+      },
+      getBookList () {
+        let _this = this
+        axios.get('http://129.204.17.28:5000/find_get', {
+          params: {
+            goods: '书籍',
+            isget: '未归还'
+          }
+        })
+          .then(function (res) {
+            _this.bookList = res.data
+          })
+          .catch(function (err) {
+            console.log(err)
+          })
+      },
+      getGlasses () {
+        let _this = this
+        axios.get('http://129.204.17.28:5000/find_get', {
+          params: {
+            goods: '眼镜',
+            isget: '未归还'
+          }
+        })
+          .then(function (res) {
+            _this.glassList = res.data
+          })
+          .catch(function (err) {
+            console.log(err)
+          })
+      },
+      getBag () {
+        let _this = this
+        axios.get('http://129.204.17.28:5000/find_get', {
+          params: {
+            goods: '背包',
+            isget: '未归还'
+          }
+        })
+          .then(function (res) {
+            _this.bagList = res.data
           })
           .catch(function (err) {
             console.log(err)

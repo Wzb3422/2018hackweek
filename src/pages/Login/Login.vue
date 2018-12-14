@@ -17,6 +17,7 @@
 
     <div class="box">
       <div class="img">
+        <img class="img-content" src="../../assets/logoz.png" alt="">
       </div>
       <div class="title">
         请使用云家园账号
@@ -91,8 +92,10 @@
       height 2.5rem
       width 2.5rem
       margin-top .5rem
-      background lightgrey
       margin-bottom 1rem
+      .img-content
+        display block
+        width 2.3rem
     .title
       height .5rem
       width 100%

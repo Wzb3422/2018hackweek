@@ -57,8 +57,8 @@
   export default {
     name: "LostDetails",
     methods: {
-      msgbox () { MessageBox.confirm('亲爱的同学，请再次确认已经成功归还～确认后，该寻物启事将不会在汇总中出现').then( () => {
-        MessageBox.alert('谢谢你，南大小蜜蜂', ' ');
+      msgbox () { MessageBox.confirm('亲爱的同学，请再次确认已经成功归还～确认后，该寻物启事将从汇总栏移除').then( () => {
+        MessageBox.alert('谢谢你，南大小雷锋', ' ');
       }); }
     }
   }

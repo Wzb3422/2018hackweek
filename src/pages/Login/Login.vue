@@ -55,6 +55,7 @@
     },
     methods: {
       getToken () {
+        let _this = this
         let username = this.username
         let password = this.password
         let token = this.token
@@ -67,7 +68,7 @@
               console.log('Suc')
               console.log(res)
               token = res.data.token
-              window.open('')
+              _this.$router.push('/home')
               // console.log(token)
 
             } else {

@@ -42,6 +42,7 @@
   import { Toast } from 'mint-ui';
   import axios from 'axios'
   import Vue from 'vue'
+  import Router from 'vue-router'
 
   export default {
     name: "Login",
@@ -66,7 +67,7 @@
               console.log('Suc')
               console.log(res)
               token = res.data.token
-              window.open('http://localhost:8080/#/home')
+              window.open('')
               // console.log(token)
 
             } else {

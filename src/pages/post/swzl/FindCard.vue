@@ -110,22 +110,25 @@
         this.isFound = false
       },
       activateStu () {
-        console.log('activateStu')
+        // console.log('activateStu')
         this.isStuCard = true
         this.isIdCard = false
         this.isBank = false
+        this.numText = '学号'
       },
       activateIdCard () {
-        console.log('activateIdCard')
+        // console.log('activateIdCard')
         this.isStuCard = false
         this.isIdCard = true
         this.isBank = false
+        this.numText = '身份证号'
       },
       activateBank () {
-        console.log('activateBank')
+        // console.log('activateBank')
         this.isStuCard = false
         this.isIdCard = false
         this.isBank = true
+        this.numText = '银行卡号'
       },
       activateQQ () {
         this.isQQ = true

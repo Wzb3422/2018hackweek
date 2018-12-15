@@ -18,30 +18,30 @@
     <div class="box">
       <div class="row">
         <div class="title">物品</div>
-        <div class="stuffName">{{ boxList }}</div>
+        <div class="stuffName">{{ boxList.goods_name}}</div>
       </div>
       <div class="row">
         <div class="title">拾取人</div>
-        <div class="text">张三</div>
+        <div class="text">{{ boxList.name }}</div>
       </div>
       <div class="contact">
         <div class="contact-title">联系方式</div>
         <div class="contact-desc">
           <div class="method">手机</div>
-          <div class="num">1230791234</div>
+          <div class="num">{{ boxList.telephone }}</div>
         </div>
       </div>
       <div class="row">
         <div class="title">拾取地点</div>
-        <div class="text">主教学楼123</div>
+        <div class="text">{{ boxList.location }}</div>
       </div>
       <div class="row">
         <div class="title">拾取时间</div>
-        <div class="text">2018-11-11</div>
+        <div class="text">{{ boxList.date }}</div>
       </div>
       <div class="specific-desc">
         <div class="specific-title">具体描述</div>
-        <div class="specific-text">测试文本-测试文本-测试文本-测试文本-测试文本-测试文本-测试文本-测试文本-测试文本</div>
+        <div class="specific-text">{{ boxList.desc }}</div>
       </div>
 
       <div class="return" @click="msgbox">
@@ -59,13 +59,20 @@
     name: "FoundDetails",
     data () {
       return {
-        boxList: []
+        boxList: {
+          goods_name: '未修改的文本',
+          name: '未修改的名字',
+          telephone: '未修改的Tel',
+          desc: '这里是未获取的描述',
+          date: '时间未获取',
+          location: '未获取地点'
+        }
       }
     },
     methods: {
       msgbox () { MessageBox.confirm('亲爱的同学,确认你已经认领了吗？').then( () => {
-        MessageBox.alert('认领成功', ' ');
-      }); },
+        MessageBox.alert('认领成功', ' ')
+      }) },
       getThis () {
         return this
       }
@@ -110,7 +117,7 @@
       .stuffName
         width 4.7rem
         height .9rem
-        font-size .5rem
+        font-size .44rem
         line-height .7rem
 
       .text

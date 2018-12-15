@@ -43,7 +43,7 @@
       HandleClick (index) {
         this.bus.$emit('HandleClick', this.boxList[index])
         console.log(index)
-        console.log('向外出发成功')
+        console.log('向外触发成功')
       }
     }
   }

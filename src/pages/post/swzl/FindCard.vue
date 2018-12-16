@@ -42,7 +42,7 @@
     <div class="num">
       <div class="num-title">{{numText}}</div>
       <div class="input-container">
-        <input class="num-input" :value="num">
+        <input class="num-input" v-model="num">
       </div>
     </div>
 
@@ -54,7 +54,7 @@
         地点
       </div>
       <div class="Location-input">
-        <input class="add-input" :value="location">
+        <input class="add-input" v-model="location">
       </div>
     </div>
 
@@ -65,7 +65,7 @@
         <div class="iconfont tel-icon" :class="{ purpleText: !isQQ }" @click="activateTel">&#xe615;</div>
       </div>
       <div class="contact-box">
-        <input class="contact-input" :value="contact">
+        <input class="contact-input" v-model="contact">
       </div>
     </div>
     <div class="post-text" @click="postCard">
@@ -138,11 +138,13 @@
       },
       postCard () {
         let _this = this
+        console.log(this.contact)
         axios.post('http://129.204.17.28:5000/find_add', {
           name: _this.name,
           id: _this.num,
           qq: _this.contact,
-          desc: location
+          desc: _this.location,
+          goods: '证件'
         })
           .then(function (res) {
             if (res.data.status === 1) {

@@ -17,7 +17,7 @@
     </div>
     <div class="box">
       <div class="row">
-        <div class="title">物品</div>
+        <div class="title wpmc">物品</div>
         <div class="stuffName">{{ boxList.goods_name}}</div>
       </div>
       <div class="row">
@@ -72,23 +72,11 @@
     methods: {
       msgbox () { MessageBox.confirm('亲爱的同学,确认你已经认领了吗？').then( () => {
         MessageBox.alert('认领成功', ' ')
-      }) },
-      getThis () {
-        return this
-      }
+      }) }
     },
     mounted () {
       console.log(this)
-      const _this = this
-      this.bus.$on('HandleClick', function (boxList) {
-        console.log('hello')
-        console.log(boxList)
-        _this.boxList = boxList
-        console.log('world')
-        console.log(_this.boxList)
-        console.log(_this)
-        console.log('213')
-      })
+      this.boxList = this.bus.boxList
     }
   }
 </script>
@@ -115,7 +103,7 @@
         line-height .9rem
 
       .stuffName
-        width 4.7rem
+        width 7rem
         height .9rem
         font-size .44rem
         line-height .7rem

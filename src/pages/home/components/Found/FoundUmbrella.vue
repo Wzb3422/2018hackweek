@@ -22,7 +22,7 @@
           </div>
         </div>
         <router-link to="/foundDetails">
-          <div class="iconfont forDetail" @click="HandleClick(index)">
+          <div class="iconfont forDetail" @click="handleClick(index)">
             &#xe602;
           </div>
         </router-link>
@@ -40,9 +40,8 @@
     props: ['boxList'],
     name: "FoundUmbrella",
     methods: {
-      HandleClick (index) {
-        this.bus.$emit('HandleClick', this.boxList[index])
-        console.log(index)
+      handleClick(index) {
+        this.bus.boxList = this.boxList[index]
         console.log('向外触发成功')
       }
     }

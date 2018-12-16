@@ -22,7 +22,7 @@
           </div>
         </div>
         <router-link to="/foundDetails">
-          <div class="iconfont forDetail">
+          <div class="iconfont forDetail" @click="handleClick(index)">
             &#xe602;
           </div>
         </router-link>
@@ -38,7 +38,13 @@
 <script>
   export default {
     props: ['boxList'],
-    name: "FoundGlasses"
+    name: "FoundGlasses",
+    methods: {
+      handleClick(index) {
+        this.bus.boxList = this.boxList[index]
+        console.log('向外触发成功')
+      }
+    }
   }
 </script>
 

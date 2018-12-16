@@ -1,7 +1,7 @@
 <template>
   <div class="rootEle">
     <div class="wrapper">
-      <div class="item-box" v-for="item of boxList" :key="item.id">
+      <div class="item-box" v-for="(item, index) of boxList" :key="item.id">
         <div class="item-logo">
           <!-- 判断物品类型 从而选择显示图标类型 -->
           <div class="iconfont umbrella-font">
@@ -23,7 +23,7 @@
           </div>
         </div>
         <router-link to="/foundDetails">
-          <div class="iconfont forDetail">
+          <div class="iconfont forDetail" @click="handleClick(index)">
             &#xe602;
           </div>
         </router-link>
@@ -45,6 +45,10 @@
       }
     },
     methods: {
+      handleClick(index) {
+        this.bus.boxList = this.boxList[index]
+        console.log('向外触发成功')
+      }
     }
   }
 </script>

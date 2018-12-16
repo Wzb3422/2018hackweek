@@ -75,7 +75,7 @@
       }) }
     },
     mounted () {
-      console.log(this)
+      // console.log(this)
       this.boxList = this.bus.boxList
     }
   }

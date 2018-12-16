@@ -1,7 +1,7 @@
 <template>
   <div class="rootEle">
     <div class="wrapper">
-      <div class="item-box" v-for="item of boxList" :key="item.id">
+      <div class="item-box" v-for="(item, index) of boxList" :key="item.id">
         <div class="item-logo">
           <div class="iconfont umbrella-font">
             &#xe64e;

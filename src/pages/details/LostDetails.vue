@@ -18,30 +18,30 @@
     <div class="box">
       <div class="row">
         <div class="title">物品</div>
-        <div class="stuffName">一把灰色碎花伞</div>
+        <div class="stuffName">{{ boxList.goods_name}}</div>
       </div>
       <div class="row">
         <div class="title">拾取人</div>
-        <div class="text">张三</div>
+        <div class="text">{{ boxList.name }}</div>
       </div>
       <div class="contact">
         <div class="contact-title">联系方式</div>
         <div class="contact-desc">
           <div class="method">手机</div>
-          <div class="num">1230791234</div>
+          <div class="num">{{ boxList.telephone }}</div>
         </div>
       </div>
       <div class="row">
         <div class="title">拾取地点</div>
-        <div class="text">主教学楼123</div>
+        <div class="text">{{ boxList.location }}</div>
       </div>
       <div class="row">
         <div class="title">拾取时间</div>
-        <div class="text">2018-11-11</div>
+        <div class="text">{{ boxList.date }}</div>
       </div>
       <div class="specific-desc">
         <div class="specific-title">具体描述</div>
-        <div class="specific-text">测试文本-测试文本-测试文本-测试文本-测试文本-测试文本-测试文本-测试文本-测试文本</div>
+        <div class="specific-text">{{ boxList.desc }}</div>
       </div>
 
       <div class="return" @click="msgbox">
@@ -56,10 +56,19 @@
   import { MessageBox } from 'mint-ui';
   export default {
     name: "LostDetails",
+    data () {
+      return {
+        boxList: []
+      }
+    },
     methods: {
       msgbox () { MessageBox.confirm('亲爱的同学，请再次确认已经成功归还～确认后，该寻物启事将从汇总栏移除').then( () => {
         MessageBox.alert('谢谢你，南大小雷锋', ' ');
       }); }
+    },
+    mounted () {
+      // console.log(this)
+      this.boxList = this.bus.boxList
     }
   }
 </script>
@@ -86,7 +95,7 @@
         line-height .9rem
 
       .stuffName
-        width 4.7rem
+        width 7rem
         height .9rem
         font-size .4rem
         line-height 1rem

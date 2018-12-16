@@ -1,7 +1,7 @@
 <template>
   <div class="rootEle">
     <div class="wrapper">
-      <div class="item-box" v-for="item of boxList" :key="item.id">
+      <div class="item-box" v-for="(item, index) of boxList" :key="item.id">
         <div class="item-logo">
           <div class="iconfont umbrella-font">
             &#xe600;
@@ -22,7 +22,7 @@
           </div>
         </div>
         <router-link to="/lostDetails">
-          <div class="iconfont forDetail">
+          <div class="iconfont forDetail" @click="handleClick(index)">
             &#xe602;
           </div>
         </router-link>
@@ -38,7 +38,12 @@
 <script>
   export default {
     props: ['boxList'],
-    name: "LostBag"
+    name: "LostBag",
+    methods: {
+      handleClick(index) {
+        this.bus.boxList = this.boxList[index]
+      }
+    }
   }
 </script>
 
